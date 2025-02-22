@@ -10,7 +10,7 @@ const firstBucket = new aws.s3.BucketV2("pulumi-ftr-first-bucket", {
     }
 });
 
-// Export infos from bucket
+// Export infos from the first bucket
 export const firstBucketName = firstBucket.id;
 export const firstBucketInfo = firstBucket.bucket;
 export const firstBucketArn = firstBucket.arn;
@@ -23,7 +23,7 @@ const secondBucket = new aws.s3.BucketV2("pulumi-ftr-second-bucket", {
     }
 });
 
-// Export infos from bucket
+// Export infos from the second bucket
 export const secondBucketName = secondBucket.id;
 export const secondBucketInfo = secondBucket.bucket;
 export const secondBucketArn = secondBucket.arn;
