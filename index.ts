@@ -3,17 +3,30 @@ import * as aws from "@pulumi/aws";
 import * as awsx from "@pulumi/awsx";
 
 // Create an AWS S3 Bucket resource
-const bucket = new aws.s3.BucketV2("pulumi-ftr-bucket", {
-    bucket: "pulumi-ftr-bucket",
+const firstBucket = new aws.s3.BucketV2("pulumi-ftr-first-bucket", {
+    bucket: "pulumi-ftr-first-bucket",
     tags: {
         IAC: "true",
     }
 });
 
-// Export infos from the bucket
-export const bucketName = bucket.id;
-export const bucketInfo = bucket.bucket;
-export const bucketArn = bucket.arn;
+// Export infos from the first bucket
+export const firstBucketName = firstBucket.id;
+export const firstBucketInfo = firstBucket.bucket;
+export const firstBucketArn = firstBucket.arn;
+
+// Create an AWS S3 Bucket resource
+const secondBucket = new aws.s3.BucketV2("pulumi-ftr-second-bucket", {
+    bucket: "pulumi-ftr-second-bucket",
+    tags: {
+        IAC: "true",
+    }
+});
+
+// Export infos from the second bucket
+export const secondBucketName = secondBucket.id;
+export const secondBucketInfo = secondBucket.bucket;
+export const secondBucketArn = secondBucket.arn;
 
 // Create an AWS ECR resource
 const ecr = new aws.ecr.Repository("pulumi-ftr-ecr", {
